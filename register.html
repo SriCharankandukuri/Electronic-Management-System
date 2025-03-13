@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register New Employee</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://tse1.mm.bing.net/th?id=OIP.C1yq-jdFYDrj-GAT5EPBkQHaEo&pid=Api&P=0&h=180'); /* Replace with your background image */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header, footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+        }
+
+        header img {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 40px;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: #444;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0); /* Slightly transparent */
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            margin: auto;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+        }
+
+        .form-container {
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .form-group label {
+            flex: 1;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0); /* Fully transparent */
+            border-radius: 20px 0 0 20px;
+            margin-right: -1px; /* Align with input field */
+            border: 1px solid #070000;
+            box-sizing: border-box;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            flex: 2;
+            padding: 10px;
+            border: 1px solid #070000;
+            background-color: rgba(44, 44, 44, 0); /* Fully transparent */
+            color: #0d0d0d;
+            border-radius: 0 20px 20px 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            height: 40px;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .button-group button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+
+        .button-group button:first-child {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .button-group button:last-child {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        .button-group button:hover {
+            opacity: 0.9;
+        }
+
+        .splash-logo {
+            width: 100px;
+            height: auto;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img class="splash-logo" src="logo.png" alt="Logo"> <!-- Replace 'logo.png' with the path to your logo -->
+        <h1>Employee Registration</h1>
+        <nav>
+            <ul>
+                <li><a href="splashscreen.html">Home</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <form class="form-container" id="registerForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile</label>
+                <input type="text" id="mobile" name="mobile" required placeholder="Mobile Number" pattern="\d{10}" title="Please enter a 10-digit mobile number" maxlength="10">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="adhar">Adhar No</label>
+                <input type="text" id="adhar" name="adhar" required placeholder="Adhar Number" pattern="\d{12}" title="Please enter a 12-digit Aadhaar number" maxlength="12">
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" rows="3" required placeholder="Address"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required min="2002-06-17">
+            </div>            
+            <div class="form-group">
+                <label for="workshift">Work Shift</label>
+                <input type="text" id="workshift" name="workshift" required placeholder="Work Shift">
+            </div>
+            <div class="form-group">
+                <label for="doj">Date of Join</label>
+                <input type="date" id="doj" name="doj" required>
+            </div>
+            <div class="form-group">
+                <label for="jobRole">User Role</label>
+                <select id="jobRole" name="jobRole" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="admin">Admin</option>
+                    <option value="staff">Staff</option>
+                    <option value="manager">Manager</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="qualification">Qualification</label>
+                <input type="text" id="qualification" name="qualification" required placeholder="Qualification">
+            </div>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required placeholder="Username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Password" minlength="8" title="Password must be at least 8 characters long">
+            </div>
+            
+            <div class="button-group">
+                <button type="submit" class="register-button">Register</button>
+                <button type="reset">Clear</button>
+            </div>
+        </form>
+    </div>
+    
+    <footer>
+        &copy; Copyright 2024
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("registerForm").addEventListener("submit", function(event) {
+                event.preventDefault();
+                const formData = new FormData(event.target);
+                const data = {};
+                formData.forEach((value, key) => (data[key] = value));
+
+                // Save user data to localStorage
+                localStorage.setItem('user', JSON.stringify(data));
+
+                // Sending registration data to the server
+                fetch('/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert("Registration successful!");
+                        window.location.href = "login.html";
+                    } else {
+                        throw new Error('Registration failed.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Registration error:', error);
+                    alert("Registration failed. Please try again.");
+                });
+            });
+        });
+    </script>
+</body>
+</html>

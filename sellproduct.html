@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Product</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://tse1.mm.bing.net/th?id=OIP.C1yq-jdFYDrj-GAT5EPBkQHaEo&pid=Api&P=0&h=180');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header, footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 10px 20px;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header img {
+            height: 60px;
+            vertical-align: middle;
+        }
+
+        header span {
+            font-size: 24px;
+            line-height: 60px;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 50px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .button-group {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .button-group button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .button-group button:hover {
+            background-color: #0056b3;
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #dddddd00;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f200;
+            font-weight: bold;
+        }
+        tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .splash-logo {
+            height: 60px;
+            vertical-align: middle;
+            margin-right: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: #444;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        .form-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #f7f7f700; /* Changed background color */
+            border-radius: 8px;
+            margin-top: 50px;
+            width: 90%;
+            max-width: 400px; /* Adjusted max-width */
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Adjusted alignment */
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #cccccc00; /* Added border */
+            border-radius: 5px; /* Added border radius */
+        }
+
+        .button-group {
+            width: 100%;
+            display: flex;
+            justify-content: center; /* Adjusted alignment */
+        }
+
+        .button-group button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <img class="splash-logo" src="logo.png" alt="Logo">
+            <span>Electronic Shop Management System</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="splashscreen.html">Home</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="addproduct.html">Add Product</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>Sell Product</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Select</th>
+                        <th>Product Type</th>
+                        <th>Product Brand</th>
+                        <th>Product Name</th>
+                        <th>Model No</th>
+                        <th>Serial No</th>
+                        <th>Warranty</th>
+                        <th>Guarantee</th>
+                        <th>Supplier Name</th>
+                        <th>Contact No</th>
+                        <th>Import Date</th>
+                        <th>Product ID</th>
+                        <th>MRP</th>
+                        <th>Sold</th>
+                    </tr>
+                </thead>
+                <tbody id="productTableBody">
+                    <!-- Product rows will be added here -->
+                </tbody>
+            </table>
+        </div>
+        <div class="button-group" style="margin-top: 20px;" id="generateBillButtonGroup">
+            <button onclick="showForm()">Generate Bill</button>
+        </div>
+    </div>
+    <div class="form-container" id="billForm">
+        <h2>Generate Bill</h2>
+        <div class="form-group">
+            <label for="customerName">Customer Name</label>
+            <input type="text" id="customerName" name="customerName">
+        </div>
+        <div class="form-group">
+            <label for="mobileNo">Mobile No</label>
+            <input type="text" id="mobileNo" name="mobileNo">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city">
+        </div>
+        <div class="form-group">
+            <label for="deliveryAddress">Delivery Address</label>
+            <input type="text" id="deliveryAddress" name="deliveryAddress">
+        </div>
+        <div class="form-group">
+            <label for="productName">Product Name</label>
+            <input type="text" id="productName" name="productName" disabled>
+        </div>
+        <div class="form-group">
+            <label for="serialNo">Serial No</label>
+            <input type="text" id="serialNo" name="serialNo" disabled>
+        </div>
+        <div class="form-group">
+            <label for="mrp">MRP</label>
+            <input type="text" id="mrp" name="mrp" disabled>
+        </div>
+        <div class="button-group">
+            <button onclick="generateBill()">Submit</button>
+        </div>
+    </div>
+    <footer>
+        &copy; 2024 Electronic Shop Management System
+    </footer>
+    <script>
+        let selectedProducts = [];
+        let selectedProductDetails = {};
+
+        async function fetchProducts() {
+            const response = await fetch('/products');
+            const products = await response.json();
+            const productTableBody = document.getElementById('productTableBody');
+            productTableBody.innerHTML = '';
+
+            products.forEach(product => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><input type="checkbox" name="selectProduct" value="${product._id}" ${product.sold ? 'disabled' : ''} onclick="selectProduct('${product._id}', '${product.productName}', '${product.serialNo}', '${product.mrp}')"></td>
+                    <td>${product.productType}</td>
+                    <td>${product.productBrand}</td>
+                    <td>${product.productName}</td>
+                    <td>${product.modelNo}</td>
+                    <td>${product.serialNo}</td>
+                    <td>${product.warranty}</td>
+                    <td>${product.guarantee}</td>
+                    <td>${product.supplierName}</td>
+                    <td>${product.contactNo}</td>
+                    <td>${product.importDate}</td>
+                    <td>${product._id}</td>
+                    <td>${product.mrp}</td>
+                    <td>${product.sold ? 'Yes' : 'No'}</td>
+                `;
+                productTableBody.appendChild(row);
+            });
+        }
+
+        function selectProduct(productId, productName, serialNo, mrp) {
+            const checkbox = document.querySelector(`input[value="${productId}"]`);
+            if (checkbox.checked) {
+                selectedProducts.push(productId);
+                selectedProductDetails = { productName, serialNo, mrp };
+            } else {
+                selectedProducts = selectedProducts.filter(id => id !== productId);
+                if (selectedProducts.length === 0) {
+                    selectedProductDetails = {};
+                }
+            }
+        }
+
+        function showForm() {
+            if (selectedProducts.length > 0) {
+                document.getElementById('productName').value = selectedProductDetails.productName;
+                document.getElementById('serialNo').value = selectedProductDetails.serialNo;
+                document.getElementById('mrp').value = selectedProductDetails.mrp;
+                document.getElementById('billForm').style.display = 'flex';
+            } else {
+                alert('Please select at least one product to sell');
+            }
+        }
+
+        async function generateBill() {
+            if (selectedProducts.length > 0) {
+                const customerName = document.getElementById('customerName').value;
+                const mobileNo = document.getElementById('mobileNo').value;
+                const email = document.getElementById('email').value;
+                const city = document.getElementById('city').value;
+                const deliveryAddress = document.getElementById('deliveryAddress').value;
+
+                const billData = {
+                    customerName,
+                    mobileNo,
+                    email,
+                    city,
+                    deliveryAddress,
+                    products: selectedProducts
+                };
+
+                const response = await fetch('/sellProduct', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(billData)
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    alert('Bill generated successfully');
+                    fetchProducts();
+                    document.getElementById('billForm').style.display = 'none';
+                } else {
+                    alert('Error generating bill: ' + result.message);
+                }
+            } else {
+                alert('Please select at least one product to sell');
+            }
+        }
+
+        window.onload = fetchProducts;
+    </script>
+</body>
+</html>

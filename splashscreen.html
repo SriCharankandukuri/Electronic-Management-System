@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electronic Shop Management System</title>
+<style>
+    body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://tse1.mm.bing.net/th?id=OIP.C1yq-jdFYDrj-GAT5EPBkQHaEo&pid=Api&P=0&h=180'); /* Replace with your background image URL */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh; /* Ensure the body takes up the full height of the viewport */
+        }
+
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+            width: 100%;
+        }
+
+    header h1, header p {
+        margin: 5px 0; /* Adjust spacing between h1 and p */
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    header p {
+        font-size: 0.8rem;
+    }
+
+    header nav {
+        margin-left: auto; /* Pushes the nav to the right */
+    }
+
+    header nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    header nav ul li {
+        display: inline;
+        margin-right: 10px;
+        position: relative; /* Add position relative */
+    }
+
+    header nav ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    header nav ul li.active a {
+        color: #fff; /* Change active link color to white */
+    }
+
+    header nav ul li.active::after {
+        content: '';
+        position: absolute;
+        bottom: -2px; /* Adjust the position of the active bar */
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #fff; /* Change active bar color to white */
+    }
+    nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a.active::after,
+        nav ul li a:hover::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+    .splash-logo {
+        width: 100px; /* Adjust the width as needed */
+        height: auto; /* Maintain aspect ratio */
+        margin-right: 10px; /* Adjust spacing between logo and text */
+    }
+
+    
+
+    .splash-content {
+        text-align: center;
+    }
+
+    .splash-title {
+        font-size: 2.5rem;
+    }
+
+    .splash-subtitle {
+        font-size: 1.2rem;
+    }
+
+   
+
+    footer {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        text-align: center;
+    }
+
+    footer a img {
+        width: 30px;
+        height: 30px;
+        margin: 0 5px;
+    }
+    
+</style>
+</head>
+<body>
+    <header>
+        <img class="splash-logo" src="logo.png" alt="Logo">
+        <div>
+            <h1>Electronic Shop Management System</h1>
+            
+        </div>
+        <nav>
+            <ul>
+                <li><a href="splashscreen.html">Home</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="login.html">Login</a></li>
+                </ul>
+        </nav>
+    </header>
+   <main>
+<div class="splash-screen">
+    <div class="splash-content">
+        <div class="splash-title">
+            <h1>Welcome</h1>
+        </div>
+        <div class="splash-subtitle">
+            <p>Your one-stop solution for managing your electronic shop efficiently.</p>
+        </div>
+    </div>
+</div>
+</main>
+    <footer>
+        &copy; 2024 Electronic Shop Management System
+    </footer>
+</body>
+</html>

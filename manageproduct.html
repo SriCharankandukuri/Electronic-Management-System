@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Product</title>
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://tse1.mm.bing.net/th?id=OIP.C1yq-jdFYDrj-GAT5EPBkQHaEo&pid=Api&P=0&h=180'); /* Replace with your background image URL */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh; /* Ensure the body takes up the full height of the viewport */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #ffffff00;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        header, footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 10px 20px;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between; /* Align items in header to the ends */
+            align-items: center; /* Center items vertically */
+        }
+        header img {
+            height: 60px; /* Increased logo size */
+            vertical-align: middle;
+        }
+        header span {
+            font-size: 24px; /* Increased font size for better visibility */
+            line-height: 60px; /* Match the logo height */
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+            width: 100%;
+            justify-content: center;
+        }
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            flex: 1;
+        }
+        .button-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 20px 0; /* Space between button groups */
+        } 
+        .button-group img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 30px;
+            margin-bottom: 20px;
+        }
+        .button-group button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px; /* Increase padding for larger buttons */
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px; /* Increase font size for better readability */
+            margin: 10px 0; /* Add margin between buttons */
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 10px;
+            width: 200px;
+        }
+        .button-group button:hover {
+            background-color: #45a049; /* Darker green */
+            color: white;
+        }
+        .splash-logo {
+            height: 80px; /* Match header img height */
+            vertical-align: middle;
+            margin-right: 20px;
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            display: block;
+        }
+        nav ul li a:hover {
+            background-color: #444;
+        }
+
+        .back-button .back-button {
+            display:block;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .container .back-button img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .search-bar label {
+            margin-right: 10px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #d9534f;
+            color: rgba(255, 255, 255, 0.36);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background-color: #c9302c;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #dddddd00;
+        }
+
+        th {
+            background-color: #f2f2f200;
+        }
+
+        tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .header-container h1 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img class="splash-logo" src="logo.png" alt="Logo">
+        <div>
+            <h1>Electronic Shop Management System</h1>
+            
+        </div>
+        <nav>
+            <ul>
+                <li><a href="splashscreen.html">Home</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="login.html">Login</a></li>
+                </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="header-container">
+            <h1>Manage Product</h1>
+            <div class="back-button" onclick="window.history.back()">
+                <img src="back-arrow.svg" alt="Back">
+            </div>
+        </div>
+        <div class="search-bar">
+            <label for="searchProduct">Search by Product ID: </label>
+            <input type="text" id="searchProduct" placeholder="Enter product ID...">
+            <button id="deleteButton">Delete</button>
+        </div>
+  
+        <table id="productTable">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Product Type</th>
+                    <th>Sold</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Product rows will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+    <footer>
+        &copy; 2024 Electronic Shop Management System
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetchProducts();
+            document.getElementById('deleteButton').addEventListener('click', function() {
+                deleteProduct();
+            });
+        });
+
+        function fetchProducts() {
+            fetch('/products')
+            .then(response => response.json())
+            .then(products => {
+                const tableBody = document.querySelector('#productTable tbody');
+                tableBody.innerHTML = ''; // Clear existing rows
+                products.forEach(product => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${product.productId}</td>
+                        <td>${product.productName}</td>
+                        <td>${product.productType}</td>
+                        <td>${product.sold ? 'Yes' : 'No'}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error fetching products:', error));
+        }
+
+        function deleteProduct() {
+            const productId = document.getElementById('searchProduct').value;
+            fetch('/deleteProduct', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ productId: productId })
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Reload the product list after successful deletion
+                    fetchProducts();
+                } else {
+                    console.error('Error deleting product:', response.statusText);
+                }
+            })
+            .catch(error => console.error('Error deleting product:', error));
+        }
+    </script>
+</body>
+</html>

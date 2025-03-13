@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronic Shop Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://tse1.mm.bing.net/th?id=OIP.C1yq-jdFYDrj-GAT5EPBkQHaEo&pid=Api&P=0&h=180'); /* Replace with your background image URL */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        header, footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 10px 20px;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between; /* Align items in header to the ends */
+            align-items: center; /* Center items vertically */
+        }
+        header img {
+            height: 60px; /* Increased logo size */
+            vertical-align: middle;
+        }
+        header span {
+            font-size: 24px; /* Increased font size for better visibility */
+            line-height: 60px; /* Match the logo height */
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+            width: 100%;
+            justify-content: center;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0);
+            padding: 20px;
+            border-radius: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px; /* Adjust width and height to create a square shape */
+            height: 300px;
+            margin: 80px auto 40px auto; /* Adjusted for header and footer */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Center content vertically */
+        }
+        .form-container {
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px; /* Adjust font size to fit within the square */
+        }
+        .form-group {
+            margin-bottom: 10px; /* Reduce margin to fit within the square */
+            width: 100%;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 8px; /* Reduce padding to fit within the square */
+            margin: 0;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid #0f0f0f;
+            border-radius: 30px;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .button-group {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            border-radius: 30px;
+        }
+        .button-group button {
+            background-color: #0b0b0b;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button-group button:hover {
+            background-color: #e60000;
+        }
+        .splash-logo {
+            height: 80px; /* Match header img height */
+            vertical-align: middle;
+            margin-right: 20px;
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            display: block;
+        }
+        nav ul li a:hover {
+            background-color: #444;
+        }
+        #login{
+            border-radius: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <img class="splash-logo" src="logo.png" alt="Logo">
+            <span>Electronic Shop Management System</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="splashscreen.html">Home</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Login</h1>
+        <div class="form-container">
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="jobRole">User Role</label>
+                      <select id="jobRole" name="jobRole" required>
+                        <option value="" disabled selected>Select</option>
+                        <option value="admin">Admin</option>
+                        <option value="staff">Staff</option>
+                        <option value="manager">Manager</option>
+                      </select>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter Username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter Password" required>
+                </div>
+                <div class="button-group">
+                    <button type="submit" id="login">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer>
+        &copy; 2024 Electronic Shop Management System
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("loginForm").addEventListener("submit", function(event) {
+                event.preventDefault();
+                const formData = new FormData(event.target);
+                const data = {};
+                formData.forEach((value, key) => (data[key] = value));
+
+                // Sending login data to the server
+                fetch('/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        return response.json().then(errorData => {
+                            throw new Error(errorData.message || 'Login failed.');
+                        });
+                    }
+                })
+                .then(data => {
+                    console.log('Login response:', data);
+                    if (data && data.jobRole) {
+                        switch (data.jobRole) {
+                            case 'staff':
+                                window.location.href = 'choose.html';
+                                break;
+                            case 'manager':
+                                window.location.href = 'manageproduct.html';
+                                break;
+                            case 'admin':
+                                window.location.href = 'employeereport.html';
+                                break;
+                            default:
+                                alert('Unknown job role.');
+                        }
+                    } else {
+                        alert('Job role not provided.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Login error:', error);
+                    alert('Login failed. Please try again later.');
+                });
+
+            });
+        });
+    </script>
+</body>
+</html>

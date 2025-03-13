@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Product</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://tse1.mm.bing.net/th?id=OIP.C1yq-jdFYDrj-GAT5EPBkQHaEo&pid=Api&P=0&h=180');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header, footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 10px 20px;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header img {
+            height: 60px;
+            vertical-align: middle;
+        }
+        header span {
+            font-size: 24px;
+            line-height: 60px;
+        }
+        footer {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.073);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 50px;
+            width: 90%;
+            max-width: 1200px;
+        }
+        .form-container {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #dddddd00; /* transparent border */
+            border-radius: 4px;
+            background-color: transparent; /* transparent background */
+            color: white; /* text color */
+        }
+        .button-group {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .button-group button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+        .button-group button:hover {
+            background-color: #0056b3;
+        }
+        .table-container {
+            width: 50%;
+            overflow-x: auto;
+            margin-left: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #dddddd00;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f200;
+            font-weight: bold;
+        }
+        tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+        .splash-logo {
+            height: 60px;
+            vertical-align: middle;
+            margin-right: 20px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 15px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            display: block;
+        }
+        nav ul li a:hover {
+            background-color: #444;
+        }
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 28px;
+        }
+        h2 {
+            font-size: 24px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .form-container, .table-container {
+                width: 100%;
+                margin: 0;
+            }
+            .table-container {
+                margin-top: 20px;
+            }
+        }
+        @media (max-width: 600px) {
+            header, footer {
+                flex-direction: column;
+                align-items: center;
+            }
+            .splash-logo {
+                height: 40px;
+            }
+            header span {
+                font-size: 18px;
+                line-height: 40px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <img class="splash-logo" src="logo.png" alt="Logo">
+            <span>Electronic Shop Management System</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="splashscreen.html">Home</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="form-container">
+            <h2>Add New Product</h2>
+            <div class="form-group">
+                <label for="productType">Product Type</label>
+                <input type="text" id="productType" placeholder="Enter Product Type">
+            </div>
+            <div class="form-group">
+                <label for="productBrand">Product Brand</label>
+                <input type="text" id="productBrand" placeholder="Enter Product Brand">
+            </div>
+            <div class="form-group">
+                <label for="productName">Product Name</label>
+                <input type="text" id="productName" placeholder="Enter Product Name">
+            </div>
+            <div class="form-group">
+                <label for="modelNo">Model No</label>
+                <input type="text" id="modelNo" placeholder="Enter Model No">
+            </div>
+            <div class="form-group">
+                <label for="serialNo">Serial No</label>
+                <input type="text" id="serialNo" placeholder="Enter Serial No">
+            </div>
+            <div class="form-group">
+                <label for="warranty">Warranty in yrs</label>
+                <input type="number" id="warranty" placeholder="Enter Warranty Period">
+            </div>
+            <div class="form-group">
+                <label for="guarantee">Guarantee in yrs</label>
+                <input type="number" id="guarantee" placeholder="Enter Guarantee Period">
+            </div>
+            <div class="form-group">
+                <label for="supplierName">Supplier Name</label>
+                <input type="text" id="supplierName" placeholder="Enter Supplier Name">
+            </div>
+            <div class="form-group">
+                <label for="contactNo">Contact No</label>
+                <input type="text" id="contactNo" placeholder="Enter Contact No">
+            </div>
+            <div class="form-group">
+                <label for="importDate">Import Date</label>
+                <input type="date" id="importDate">
+            </div>
+            <div class="form-group">
+                <label for="productId">Product ID</label>
+                <input type="number" id="productId" placeholder="Enter Product ID">
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" id="price" placeholder="Enter Price">
+            </div>
+            <div class="form-group">
+                <label for="mrp">MRP</label>
+                <input type="number" id="mrp" placeholder="Enter MRP">
+            </div>
+            <div class="button-group">
+                <button onclick="addProduct()">Add Product</button>
+            </div>
+            <div class="button-group" style="margin-top: 20px;">
+                <button onclick="goBack()">Back</button>
+            </div>
+        </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Type</th>
+                        <th>Product Brand</th>
+                        <th>Product Name</th>
+                        <th>Model No</th>
+                        <th>Serial No</th>
+                        <th>Warranty</th>
+                        <th>Guarantee</th>
+                        <th>Supplier Name</th>
+                        <th>Contact No</th>
+                        <th>Import Date</th>
+                        <th>Product ID</th>
+                        <th>Price</th>
+                        <th>MRP</th>
+                    </tr>
+                </thead>
+                <tbody id="productTableBody">
+                    <!-- Product rows will be added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer>
+        &copy; 2024 Electronic Shop Management System
+    </footer>
+    <script>
+        async function addProduct() {
+    // Validate required fields
+    const productType = document.getElementById('productType').value;
+    const productBrand = document.getElementById('productBrand').value;
+    const productName = document.getElementById('productName').value;
+    if (!productType || !productBrand || !productName) {
+        alert('Please fill in all required fields.');
+        return;
+    }
+
+    // Get other input values
+    const modelNo = document.getElementById('modelNo').value;
+    const serialNo = document.getElementById('serialNo').value;
+    const warranty = document.getElementById('warranty').value;
+    const guarantee = document.getElementById('guarantee').value;
+    const supplierName = document.getElementById('supplierName').value;
+    const contactNo = document.getElementById('contactNo').value;
+    const importDate = document.getElementById('importDate').value;
+    const productId = document.getElementById('productId').value;
+    const price = document.getElementById('price').value;
+    const mrp = document.getElementById('mrp').value;
+    
+    try {
+        const response = await fetch('/addProduct', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                productType,
+                productBrand,
+                productName,
+                modelNo,
+                serialNo,
+                warranty,
+                guarantee,
+                supplierName,
+                contactNo,
+                importDate,
+                productId,
+                price,
+                mrp
+            })
+        });
+
+        const result = await response.json();
+        if (result.success) {
+            alert('Product added successfully');
+            clearForm();
+            fetchProducts();
+        } else {
+            alert('Error adding product: ' + result.message);
+        }
+    } catch (error) {
+        console.error('Error adding product:', error);
+        alert('An error occurred while adding the product. Please try again later.');
+    }
+}
+
+function clearForm() {
+    // Clear all input fields
+    const inputFields = document.querySelectorAll('.form-group input, .form-group select');
+    inputFields.forEach(input => {
+        input.value = '';
+    });
+}
+
+async function fetchProducts() {
+    try {
+        const response = await fetch('/products');
+        const products = await response.json();
+        const productTableBody = document.getElementById('productTableBody');
+        productTableBody.innerHTML = '';
+
+        products.forEach(product => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${product.productType}</td>
+                <td>${product.productBrand}</td>
+                <td>${product.productName}</td>
+                <td>${product.modelNo}</td>
+                <td>${product.serialNo}</td>
+                <td>${product.warranty}</td>
+                <td>${product.guarantee}</td>
+                <td>${product.supplierName}</td>
+                <td>${product.contactNo}</td>
+                <td>${product.importDate}</td>
+                <td>${product.productId}</td>
+                <td>${product.price}</td>
+                <td>${product.mrp}</td>
+            `;
+            productTableBody.appendChild(row);
+        });
+    } catch (error) {
+        console.error('Error fetching products:', error);
+        alert('An error occurred while fetching products. Please try again later.');
+    }
+}
+
+
+        function goBack() {
+            window.history.back();
+        }
+
+        // Fetch products when the page loads
+        window.onload = fetchProducts;
+    </script>
+</body>
+</html>

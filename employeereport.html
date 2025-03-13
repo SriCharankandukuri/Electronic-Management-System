@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Reports</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://tse1.mm.bing.net/th?id=OIP.C1yq-jdFYDrj-GAT5EPBkQHaEo&pid=Api&P=0&h=180');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header, footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 10px 20px;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header img {
+            height: 60px;
+            vertical-align: middle;
+        }
+
+        header span {
+            font-size: 24px;
+            line-height: 60px;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            background-color: #ffffff00;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto 20px auto;
+            padding: 10px 20px;
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c9302c;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            table-layout: fixed;
+            word-wrap: break-word;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #dddddd40;
+        }
+
+        th {
+            background-color: #f2f2f244;
+        }
+
+        tbody tr:hover {
+            background-color: #ff414171;
+        }
+
+        input[type="checkbox"] {
+            margin-left: 15px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            th, td {
+                font-size: 12px;
+                padding: 8px;
+            }
+
+            button {
+                padding: 8px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            th, td {
+                font-size: 10px;
+                padding: 6px;
+            }
+
+            button {
+                padding: 6px 12px;
+            }
+
+            .container {
+                width: 95%;
+            }
+        }
+        .splash-logo {
+            height: 80px; /* Match header img height */
+            vertical-align: middle;
+            margin-right: 20px;
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            display: block;
+        }
+        nav ul li a:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <img class="splash-logo" src="logo.png" alt="Logo">
+            <span>Electronic Shop Management System</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="splashscreen.html">Home</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Employee Reports</h1>
+        <button id="deleteButton">Delete Selected Employees</button>
+        <table id="employeeTable">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>ID</th>
+                    <th>Employee Name</th>
+                    <th>Gender</th>
+                    <th>Mobile No</th>
+                    <th>Email</th>
+                    <th>Adhar</th>
+                    <th>Address</th>
+                    <th>Work Shift</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be populated by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+    <footer>
+        &copy; 2024 Electronic Shop Management System
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tableBody = document.querySelector('#employeeTable tbody');
+
+            // Fetch and display users
+            fetch('/users')
+                .then(response => response.json())
+                .then(users => {
+                    users.forEach(user => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td><input type="checkbox" class="select-checkbox" data-id="${user._id}"></td>
+                            <td>${user._id}</td>
+                            <td>${user.name}</td>
+                            <td>${user.gender}</td>
+                            <td>${user.mobile}</td>
+                            <td>${user.email}</td>
+                            <td>${user.adhar}</td>
+                            <td>${user.address}</td>
+                            <td>${user.workshift}</td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Error fetching users:', error));
+
+            // Delete selected users
+            document.getElementById('deleteButton').addEventListener('click', function() {
+                const selectedCheckboxes = document.querySelectorAll('.select-checkbox:checked');
+                const idsToDelete = Array.from(selectedCheckboxes).map(cb => cb.dataset.id);
+
+                if (idsToDelete.length === 0) {
+                    alert('No employees selected.');
+                    return;
+                }
+
+                if (confirm('Are you sure you want to delete the selected employees?')) {
+                    Promise.all(idsToDelete.map(id =>
+                        fetch(`/user/${id}`, { method: 'DELETE' })
+                            .then(response => {
+                                if (!response.ok) {
+                                    return response.json().then(errorData => {
+                                        throw new Error(errorData.message || 'Failed to delete user.');
+                                    });
+                                }
+                            })
+                    ))
+                    .then(() => {
+                        alert('Selected employees deleted successfully.');
+                        selectedCheckboxes.forEach(cb => cb.closest('tr').remove());
+                    })
+                    .catch(error => {
+                        alert('Error deleting users: ' + error.message);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
